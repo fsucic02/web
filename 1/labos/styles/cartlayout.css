@@ -1,0 +1,138 @@
+body {
+  background-color: rgba(3, 140, 252, 0.1);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 0.8fr 0.8fr;
+  grid-template-areas:'header header header header' 
+                      'banner banner banner banner'
+                      'cart cart cart cart'
+                      'cart cart cart cart'
+                      'cart cart cart cart';
+                      
+}
+
+.banner {
+  grid-area: banner;
+}
+
+.contact-wrapper {
+  grid-area: contact;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  bottom: -1.2rem;
+  width: 35rem;
+}
+
+.cart {
+  grid-area: cart;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  text-align: center;
+}
+
+.empty {
+  grid-area: empty;
+}
+
+.header {
+  display: flex;
+  grid-area: header;
+  justify-content: space-between;
+}
+
+.product {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+}
+
+.name-amount {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.name,
+.amount,
+.amount-wrapper {
+  width: 30%;
+  text-align: center;
+}
+
+.home-image {
+  position: relative;
+  bottom: -1.8rem;
+  left: -5rem;
+  height: 5rem;
+  width: 5rem;
+}
+
+.product-name {
+  width: 56%;
+  text-align: center;
+}
+
+.product-stats {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+}
+
+.amount-wrapper {
+  display: flex;
+  position:relative;
+  bottom: -0.6rem;
+}
+
+.bx {
+  position:relative;
+  bottom:-0.1rem;
+}
+
+.bx:hover {
+  cursor:pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 0.8fr 0.8fr;
+    grid-template-areas:'header header header header' 
+                        'banner banner banner banner'
+                        'cart cart cart cart';
+                        
+  }
+}
+
+
+.empty {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  position: relative;
+  bottom: -4rem;
+}

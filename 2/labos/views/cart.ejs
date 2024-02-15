@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- google fontovi - roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles/cartlayout.css">
+    <title>Košarica</title>
+  </head>
+
+  <body>
+    
+    <div class="wrapper">
+
+      <div class="banner">
+        <img src="/images/cartbanner.png" class="banner-image" width="100%">
+      </div>
+      
+      <div class="header">
+        <div class="logo">
+          <img src="/images/footwear.png" height="95" width="150">
+        </div>
+  
+        <div class="home">
+          <a href="/home/getProducts/0"> <img src="/images/home.png" class="home-image"> </a>
+        </div>
+      </div>
+    
+      <div class="cart" id="target">
+        <div class="name-amount">
+            <p class="name"> NAZIV </p>
+            <p class="amount"> KOLIČINA </p>
+        </div>
+
+        <% if (suma === undefined || suma == 0) {%>
+          <div class="empty">
+            <p> Trenutno nijedan proizvod nije u košarici! </p>
+          </div>
+        <%} else {%>
+          <% let ukupanBroj = 0; %>
+          <% for (let i = 1; i < 51; i++) { %>
+            <% if (kosarica[i] > 0) ukupanBroj++; %>
+          <%}%>
+          <%for (let i = 1; i < 51; i++) {%>
+            <%if (kosarica[i] > 0) { %>
+                <div class="product-stats" id="wrapperfor<%=i%>">
+                  <p class="product-name"> <%= data.categories[Math.floor((i-1)/5)].products[(i-1)%5].name %> </p>
+                  <div class="amount-wrapper" id="${i}">
+                    <i class="bx bx-minus" onclick="changeCounter(<%=i%>, 0, <%=ukupanBroj%>)"></i>
+                    <div> </div>
+                      <div class="counter" id="counterfor<%=i%>"> <%= kosarica[i] %> </div> 
+                    <div> </div>
+                    <i class="bx bx-plus" onclick="changeCounter(<%=i%>, 1, <%=ukupanBroj%>)"></i>
+                  </div>
+                </div>
+            <%}%>
+          <%}%>
+        <%}%>  
+      </div>
+      
+    </div>
+
+  </body>
+  <script src="/scripts/main.js"> </script>
+</html>

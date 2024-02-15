@@ -1,0 +1,213 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: rgba(3, 140, 252, 0.1);
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 0.11fr 0.9fr;
+  grid-template-rows: 8rem 4fr 1fr 2fr;
+  grid-template-areas: 'logo header'
+                       'navigation banner'
+                       'navigation products'
+                       'navigation products';
+  row-gap: 2rem;
+  column-gap: 0.8rem;  
+}
+
+.header {
+  display: flex;
+  grid-area: header;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.logo-image {
+  grid-area: logo;
+  border-style: dashed;
+  border-color: rgba(3, 140, 252, 0.2);
+}
+
+.current-category {
+  position: relative;
+  right: -3rem;
+  font-size: 3rem;
+  margin-top: 1.5rem;
+  bottom: -1.2rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+}
+
+.icons-wrapper {
+  display: flex;
+  margin-top: 2.8rem;
+  margin-right: 3rem;
+  flex-direction: row;
+}
+
+.cart-icon {
+  margin-right: 2rem;
+}
+.navigation {
+  grid-area: navigation;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  top: -0.2rem;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 8rem;
+  margin-bottom: 0.3rem;
+  background: rgba(3, 140, 252, 0.2)
+}
+
+.banner {
+  grid-area: banner;
+  background-color: aquamarine;
+  height: 22rem;
+}
+
+.products {
+  grid-area: products;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  height: 14rem;
+  width: 14rem;
+  margin: 1rem;
+  text-align: center;
+  background-color: rgba(3, 140, 252, 0.2);
+
+}
+
+.category {
+  font-weight: 500;
+  font-size: 1.2rem;
+  background-color: rgba(3, 140, 252, 0.2);
+}
+
+.acategory {
+  text-decoration: none;
+  color:black;
+}
+.title {
+  text-align: center;
+  position: relative;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-image {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .wrapper {
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 0.04fr 0.1fr 0.6fr;
+    grid-template-areas: 'logo logo'
+                         'header header'
+                         'banner banner'
+                         'navigation products'
+                         'navigation products';
+    row-gap: 0.2rem;
+  } 
+
+  .products {
+    justify-content: flex-start;
+    margin-top: 2rem;
+    background: rgba(3, 140, 252, 0.2)
+  }
+
+  .navigation {
+    margin-top: 2rem;
+  }
+
+  .logo-image {
+    border-style: none;
+  }
+}
+
+.cart-hover {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.product:hover .cart-hover {
+  opacity: 1;
+}
+
+.cart-hover:hover {
+  cursor: pointer;
+}
+
+.visible-counter {
+  text-align: center;
+  position: relative;
+  right: -12rem;
+  top: -2.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color:white;
+  border-radius: 50%;
+}
+
+.counter {
+  text-align: center;
+  position: relative;
+  right: -12rem;
+  top: -2.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0;
+  background-color:white;
+  border-radius: 50%;
+}
+
+.tag {
+  position:relative;
+  top: -3.1rem;
+}
+
+.mcounter {
+  position: relative;
+  bottom: -2rem;
+  left: -2rem;
+  opacity: 0;
+}
+
+.visible-mcounter {
+  position: relative;
+  bottom: -2rem;
+  left: -2rem;
+}
+.welcome {
+  position: relative;
+  top: -25rem;
+  right: -2rem;
+  font-size: 3.5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  width: 30rem;
+}
+
+#maincategory {
+  font-size: 2rem;
+}

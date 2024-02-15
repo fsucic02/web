@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,100&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/layout.css">
+    <title> FootwearForYou </title>
+
+  </head>
+  
+  <body>
+    
+    <div class="wrapper">
+
+      <div class="logo-image">
+        <img src="\images\footwear.png" height="95" width="150">
+      </div>
+      <div class="header">
+
+        <div class="current-category-wrapper">
+          <p class="current-category" id="title"> <%= title %> </p> 
+        </div>
+
+        <div class="icons-wrapper">
+          <a href="/cart/getAll"><img class="cart-icon" src="/images/cart.png" height="60" width="60"></a>
+          <div class="main-counter">
+            <% if (suma > 0) { %>
+              <p class="visible-mcounter" id="main"> <%= suma %> </p>
+            <%} else {%>
+              <p class="mcounter" id="main"> 0 </p>
+            <%}%>
+          </div>
+          <img class="magnifier-icon" src="/images/magnifier.png" height="60" width="60">
+        </div>
+
+      </div>
+  
+      <div class="navigation">
+
+        <div class="categories">
+          <h1 class="title"> Kategorije </h1>
+          <% for (let i = 0; i < data.categories.length; i++) {%>
+            <% if (data.categories[i].name == title) { %>
+              <p class="category" id="maincategory"> <a href="/home/getProducts/<%=Math.round(add/5)%>" class="acategory"> <%= title %> </a> </p>
+            <%} else {%>
+              <p class="category"> <a href="/home/getProducts/<%=i%>" class="acategory"> <%= data.categories[i].name %> </a> </p>
+            <%}%>
+          <%}%>
+        </div>
+
+        <div class="contact">
+          <p class="contact-item"> Kontakt </p>
+          <p class="contact-item"> Newsletter </p>
+          <p class="contact-item"> Pretplati se </p>
+        </div>
+
+      </div>
+
+      <div class="banner">
+        <img src="/images/banner.png" class="banner-image">
+        <p class="welcome"> Dobro došli! </p>
+      </div>
+
+      <div class="products">
+        <!-- ovdje su artikli... -->
+        <% for (let i = 0; i < products.length; i++) { %>
+          <div class="product">
+            <img src="/images/<%=products[i].image%>" alt="<%=products[i].name%>" height="80%" width="100%">
+            <div class="cart-counter-wrapper">
+                <img src="/images/cart.png" class="cart-hover" height="30" width="30" onclick="addToCart(<%=i+1+add%>)">
+                <% if (kosarica && kosarica[i+1+add] > 0) { %>
+                  <p class="visible-counter" id="<%=i+1+add%>"> <%= kosarica[i+1+add] %> </p>
+                <%} else {%>
+                  <p class="counter" id="<%=i+1+add%>"> 0 </p>
+                <%}%>
+            </div>
+            <p class="tag"><%=products[i].name%></p>
+        </div>
+        <% } %>
+      </div>
+
+    </div>
+
+  </body>
+  <script src="/scripts/main.js"> </script>
+</html>
